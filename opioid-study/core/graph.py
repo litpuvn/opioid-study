@@ -19,9 +19,9 @@ class Graph(object):
                     edges.append(edge)
         return edges
 
-    def insert_node(self, person, comments, timestamp, x):
+    def insert_node(self, personId, commentId,text, timestamp, x):
         #Insert a node which is a neighbor of x
-        node = Comment(person,comments, timestamp)
+        node = Comment(personId,commentId,text , timestamp)
         self.nodes[node] = [x]
         self.nodes[x].append(node)
 
