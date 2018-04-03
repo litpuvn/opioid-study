@@ -5,7 +5,7 @@ class Graph:
         self.dict = dict
 
     def edges(self):
-        return self.findedges()
+        return self.getEdges()
 
 # Add the new edge
     def AddEdge(self, edge):
