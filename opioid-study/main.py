@@ -1,6 +1,7 @@
 from core.graph import Graph
 from core.comment import Comment
-import json
+from core.addictionToCSV import addictionToCSV
+from core.degeneToCSV import degeneToCSV
 
 ## do parsing data and convert to comment graph
 def parseJSON():
@@ -39,11 +40,11 @@ def printMatrix(matrix):
             print (matrix[i][j] , end = " ")
         print()
 
-json_data = json.load(open('data/opiates_data.json'))
-myCommentGraph = Graph()
-users = []
-parseJSON()
-users.sort()
-matrix = makeRelationMatrix()
+#json_data = json.load(open('data/opiates_data.json'))
+#myCommentGraph = Graph()
+#users = []
+#parseJSON()
+#users.sort()
+#matrix = makeRelationMatrix()
 
-printMatrix(matrix)
+#printMatrix(matrix)
