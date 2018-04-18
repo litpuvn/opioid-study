@@ -1,7 +1,7 @@
 from core.graph import Graph
 from core.comment import Comment
-from core.addictionToCSV import addictionToCSV
-from core.degeneToCSV import degeneToCSV
+import json
+from pprint import pprint
 
 ## do parsing data and convert to comment graph
 def parseJSON():
@@ -28,10 +28,15 @@ def makeRelationMatrix():
     for group, topics in json_data.items():
         for topicId, title in topics[0].items():
             for comment in title[0]['comments']:
+                topicAuthour = title[0]['3_author']
                 for userId, comments in comment.items():
-                    for i in range(0, len(users) + 1):
-                        if matrix[i][0] == userId:
-                            matrix[i][i] += 1
+                    commentAuthour = userId
+                    for a in range(0, len(users)):
+                        for b in range(0, len(users)):
+                            if matrix[a][0] == topicAuthour and matrix[0][b] == commentAuthour:
+                                matrix[a][b] += 1
+                            if matrix[a][0] == commentAuthour and matrix[0][b] == topicAuthour:
+                                matrix[a][b] += 1
     return matrix
 
 def printMatrix(matrix):
@@ -40,11 +45,11 @@ def printMatrix(matrix):
             print (matrix[i][j] , end = " ")
         print()
 
-#json_data = json.load(open('data/opiates_data.json'))
-#myCommentGraph = Graph()
-#users = []
-#parseJSON()
-#users.sort()
-#matrix = makeRelationMatrix()
+json_data = json.load(open('data/Addiction.json'))
+myCommentGraph = Graph()
+users = []
+parseJSON()
+users.sort()
+matrix = makeRelationMatrix()
 
-#printMatrix(matrix)
+printMatrix(matrix)
