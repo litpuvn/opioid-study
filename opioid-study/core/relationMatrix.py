@@ -17,7 +17,7 @@ class relationMatrix:
                         # print(commentAuthour)
                         for a in range(0, len(users)):
                             for b in range(0, len(users)):
-                                if matrix[a][0] == topicAuthour and matrix[0][b] == commentAuthour:
+                                if matrix[a][0] == topicAuthour and matrix[0][b] == commentAuthour and topicAuthour != commentAuthour:
                                     # print(matrix[a][0], matrix[0][b], matrix[a][b])
                                     matrix[a][b] += 1
                                     # print(matrix[a][0],matrix[0][b],matrix[a][b])
