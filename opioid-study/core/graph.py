@@ -24,3 +24,18 @@ class Graph:
                 if {nxtvrtx, vrtx} not in edges:
                     edges.append({vrtx, nxtvrtx})
         return edges
+
+    ## do parsing data and convert to comment graph
+    def parseJSON(json_data):
+        for group, topics in json_data.items():
+            # print(group)
+            for topicId, title in topics[0].items():
+                # print(topicId)
+                # print(title[0]['0_title'])
+                # print(title[0]['1_text'])
+                # print(title[0]['2_timestamp'])
+                for comment in title[0]['comments']:
+                    for userId, comments in comment.items():
+                        print()
+                        # print(comments[0]['0_Comment ID'])
+                        # print(comments[0]['1_Text'])
